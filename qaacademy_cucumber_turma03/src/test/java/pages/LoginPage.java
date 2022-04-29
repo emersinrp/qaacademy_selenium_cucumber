@@ -6,19 +6,21 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
     WebDriver driver;
 
-    String EMAIL = "//input[@placeholder='Informe seu e-mail']";
-    String SENHA = "//input[@placeholder='Informe sua senha']";
-    String ACESSAR = "//button[contains(text(),'Acessar')]";
+    String EMAIL = "//input[@id='inputEmail']";
+    String SENHA = "//input[@id='inputPassword']";
+    String ACESSAR = "//a[@id='btnAccess']";
 
     public LoginPage(WebDriver driverVindoDoTeste) {
         this.driver = driverVindoDoTeste;
     }
 
     public void preencherEmail(String email) {
+        driver.findElement(By.xpath(EMAIL)).clear();
         driver.findElement(By.xpath(EMAIL)).sendKeys(email);
     }
 
     public void preencherSenha(String senha) {
+        driver.findElement(By.xpath(SENHA)).clear();
         driver.findElement(By.xpath(SENHA)).sendKeys(senha);
     }
 
